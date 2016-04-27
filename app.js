@@ -10,6 +10,9 @@ var users = require('./routes/users');
 
 var app = express();
 
+// database connection initialization
+require('./lib/connectMongoose')
+
 // load models
 require('./models/Advert');
 require('./models/PushToken');
