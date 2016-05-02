@@ -1,0 +1,39 @@
+{
+  "adverts": [
+    {
+      "name": "Bicicleta",
+      "isSale": true,
+      "price": 230.15,
+      "photo": "bici.jpg",
+      "tags": ["lifestyle", "motor"]
+    },
+    {
+      "name": "iPhone 6s Plus",
+      "isSale": false,
+      "price": 500,
+      "photo": "iphone.jpg",
+      "tags": ["lifestyle", "mobile"]
+    },
+    {
+      "name": "Audi A5 3.0TDI",
+      "isSale": true,
+      "price": 19.550,
+      "photo": "audi.jpg",
+      "tags": ["motor", "cars"]
+    },
+    {
+      "name": "MacBook Pro 15\"",
+      "isSale": false,
+      "price": 1000,
+      "photo": "macbook.jpg",
+      "tags": ["electronic", "laptop"]
+    }
+  ],
+  "users": [
+    {
+      "name": "admin",
+      "mail": "admin@gmail.com",
+      "pass": "node"
+    }
+  ]
+}
