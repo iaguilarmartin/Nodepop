@@ -19,14 +19,14 @@
       "isSale": true,
       "price": 19.550,
       "photo": "audi.jpg",
-      "tags": ["motor", "cars"]
+      "tags": ["motor", "work"]
     },
     {
       "name": "MacBook Pro 15\"",
       "isSale": false,
       "price": 1000,
       "photo": "macbook.jpg",
-      "tags": ["electronic", "laptop"]
+      "tags": ["work", "mobile"]
     }
   ],
   "users": [
