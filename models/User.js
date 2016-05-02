@@ -6,11 +6,12 @@ var mongoose = require('mongoose');
 var userSchema = mongoose.Schema({
     name: {
         type: String,
-        required: true
+        required: true,
     },
     mail: {
         type: String,
-        required: true
+        required: true,
+        index: true
     },
     pass: {
         type: String,

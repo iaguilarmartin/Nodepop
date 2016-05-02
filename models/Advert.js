@@ -5,7 +5,8 @@ var mongoose = require('mongoose');
 var advertSchema = mongoose.Schema({
     name: {
         type: String,
-        required: true
+        required: true,
+        index: true
     },
     isSale: Boolean,
     price: Number,
