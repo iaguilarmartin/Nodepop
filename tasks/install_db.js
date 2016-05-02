@@ -4,6 +4,7 @@ console.log('Starting database initialization script');
 
 var mongooseConector = require('../lib/connectMongoose');
 var mongoose = require('mongoose');
+var encrypt = require('../lib/encrypt');
 
 require('../models/Advert');
 require('../models/User');
@@ -70,9 +71,10 @@ function importData(data) {
 
     var schema;
 
-    // Si no el objeto no tiene una propiedad mail se trata de un anuncio, de lo contrario es un usuario
-    if (importObj.mail) {
+    // Si no el objeto no tiene una propiedad pass se trata de un anuncio, de lo contrario es un usuario
+    if (importObj.pass) {
         schema = User;
+        importObj.pass = encrypt(importObj.pass);
     } else {
         schema = Advert;
     }

@@ -1,5 +1,7 @@
 "use strict";
 
+var encrypt = require('../../../lib/encrypt');
+
 var express = require('express');
 var router = express.Router();
 var User = require('mongoose').model('User');
@@ -21,7 +23,7 @@ router.post('/', function (req, res, next) {
 
     var newUser = new User({
        name: name,
-        pass: pass,
+        pass: encrypt(pass),
         mail: mail
     });
 
