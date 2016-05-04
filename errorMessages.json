@@ -5,12 +5,20 @@
       "USER_PASS_REQUIRED": "Password required for new users",
       "UNKNOWN_ERROR": "Unknown error",
       "AUTH_MAIL_NOT_FOUND": "Auth failed, Mail not found",
-      "AUTH_INVALID_PASS": "Auth failed, Pass is invalid"
+      "AUTH_INVALID_PASS": "Auth failed, Pass is invalid",
+      "TOKEN_PLATFORM_REQUIRED": "Platform required to register token",
+      "TOKEN_TOKEN_REQUIRED": "Token required to register token",
+      "TOKEN_PLATFORM_INVALID": "Provided platform is not valid"
     },
     "es": {
       "USER_MAIL_REQUIRED": "El mail es obligatorio para poder crear nuevos usuarios",
       "USER_NAME_REQUIRED": "El nombre es obligatorio para poder crear nuevos usuarios",
       "USER_PASS_REQUIRED": "La contraseña es obligatoria para poder crear nuevos usuarios",
-      "UNKNOWN_ERROR": "Error desconocido"
+      "UNKNOWN_ERROR": "Error desconocido",
+      "AUTH_MAIL_NOT_FOUND": "Fallo de autenticación, email no encontrado",
+      "AUTH_INVALID_PASS": "Fallo de autenticación, contraseña no válida",
+      "TOKEN_PLATFORM_REQUIRED": "La plataforma de la aplicación cliente es obligatoria para registrar un token",
+      "TOKEN_TOKEN_REQUIRED": "El token es obligatorio para registrar un token",
+      "TOKEN_PLATFORM_INVALID": "La plataforma de la aplicación cliente especificada no es válida"
     }
 }
