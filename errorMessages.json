@@ -6,6 +6,8 @@
       "UNKNOWN_ERROR": "Unknown error",
       "AUTH_MAIL_NOT_FOUND": "Auth failed, Mail not found",
       "AUTH_INVALID_PASS": "Auth failed, Pass is invalid",
+      "AUTH_INVALID_TOKEN": "Failed to authenticate token",
+      "AUTH_NO_TOKEN": "No token provided",
       "TOKEN_PLATFORM_REQUIRED": "Platform required to register token",
       "TOKEN_TOKEN_REQUIRED": "Token required to register token",
       "TOKEN_PLATFORM_INVALID": "Provided platform is not valid"
@@ -17,6 +19,8 @@
       "UNKNOWN_ERROR": "Error desconocido",
       "AUTH_MAIL_NOT_FOUND": "Fallo de autenticación, email no encontrado",
       "AUTH_INVALID_PASS": "Fallo de autenticación, contraseña no válida",
+      "AUTH_INVALID_TOKEN": "Fallo de autenticación, token no válido",
+      "AUTH_NO_TOKEN": "Es necesario especificar un token",
       "TOKEN_PLATFORM_REQUIRED": "La plataforma de la aplicación cliente es obligatoria para registrar un token",
       "TOKEN_TOKEN_REQUIRED": "El token es obligatorio para registrar un token",
       "TOKEN_PLATFORM_INVALID": "La plataforma de la aplicación cliente especificada no es válida"
