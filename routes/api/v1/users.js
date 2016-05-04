@@ -1,6 +1,7 @@
 "use strict";
 
 var encrypt = require('../../../lib/encrypt');
+var sendError = require('../../../lib/customErrors');
 
 var express = require('express');
 var router = express.Router();
@@ -12,13 +13,13 @@ router.post('/', function (req, res, next) {
     var pass = req.body.pass;
 
     if (!mail) {
-        return res.json({success: false, error: 'Email required for new users'});
+        return sendError('USER_MAIL_REQUIRED', req, res);
     }
     if (!name) {
-        return res.json({success: false, error: 'User name required for new users'});
+        return sendError('USER_NAME_REQUIRED', req, res);
     }
     if (!pass) {
-        return res.json({success: false, error: 'Password required for new users'});
+        return sendError('USER_PASS_REQUIRED', req, res);
     }
 
     var newUser = new User({

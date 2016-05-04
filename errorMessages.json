@@ -1,0 +1,12 @@
+{
+    "en": {
+      "USER_MAIL_REQUIRED": "Email required for new users",
+      "USER_NAME_REQUIRED": "User name required for new users",
+      "USER_PASS_REQUIRED": "Password required for new users"
+    },
+    "es": {
+      "USER_MAIL_REQUIRED": "El mail es obligatorio para poder crear nuevos usuarios",
+      "USER_NAME_REQUIRED": "El nombre es obligatorio para poder crear nuevos usuarios",
+      "USER_PASS_REQUIRED": "La contraseña es obligatoria para poder crear nuevos usuarios"
+    }
+}
