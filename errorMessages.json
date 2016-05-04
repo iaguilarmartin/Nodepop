@@ -2,11 +2,15 @@
     "en": {
       "USER_MAIL_REQUIRED": "Email required for new users",
       "USER_NAME_REQUIRED": "User name required for new users",
-      "USER_PASS_REQUIRED": "Password required for new users"
+      "USER_PASS_REQUIRED": "Password required for new users",
+      "UNKNOWN_ERROR": "Unknown error",
+      "AUTH_MAIL_NOT_FOUND": "Auth failed, Mail not found",
+      "AUTH_INVALID_PASS": "Auth failed, Pass is invalid"
     },
     "es": {
       "USER_MAIL_REQUIRED": "El mail es obligatorio para poder crear nuevos usuarios",
       "USER_NAME_REQUIRED": "El nombre es obligatorio para poder crear nuevos usuarios",
-      "USER_PASS_REQUIRED": "La contraseña es obligatoria para poder crear nuevos usuarios"
+      "USER_PASS_REQUIRED": "La contraseña es obligatoria para poder crear nuevos usuarios",
+      "UNKNOWN_ERROR": "Error desconocido"
     }
 }
