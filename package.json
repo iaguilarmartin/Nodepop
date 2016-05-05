@@ -4,7 +4,7 @@
   "description": "API para aplicaciones de compra/venta de productos",
   "apidoc": {
     "title": "Nodepop REST API",
-    "url" : "http://localhost:3000/api/v1"
+    "url" : "http://localhost:3000"
   },
   "private": true,
   "scripts": {

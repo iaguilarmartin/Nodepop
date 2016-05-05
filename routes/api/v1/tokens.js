@@ -6,7 +6,7 @@ var sendError = require('../../../lib/customErrors');
 var Token = require('mongoose').model('PushToken');
 
 /**
- * @api {post} /tokens Register a push token
+ * @api {post} /api/v1/tokens Register a push token
  * @apiName RegisterToken
  * @apiGroup Push Tokens
  * @apiVersion 1.0.0

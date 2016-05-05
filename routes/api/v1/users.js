@@ -10,7 +10,7 @@ var router = express.Router();
 var User = require('mongoose').model('User');
 
 /**
- * @api {post} /users Register a new user
+ * @api {post} /api/v1/users Register a new user
  * @apiName RegisterUser
  * @apiGroup Users
  * @apiVersion 1.0.0
@@ -77,7 +77,7 @@ router.post('/', function (req, res, next) {
 });
 
 /**
- * @api {post} /users/authenticate Authenticate user
+ * @api {post} /api/v1/users/authenticate Authenticate user
  * @apiName  AuthenticateUser
  * @apiGroup Users
  * @apiVersion 1.0.0

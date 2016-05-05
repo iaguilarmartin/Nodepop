@@ -6,7 +6,7 @@ var router = express.Router();
 var config = require('../../../app_config');
 
 /**
- * @api {get} /tags List available tags
+ * @api {get} /api/v1/tags List available tags
  * @apiName GetTags
  * @apiGroup Tags
  * @apiVersion 1.0.0

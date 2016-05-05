@@ -6,7 +6,7 @@ var Advert = require('mongoose').model('Advert');
 var jwtAuth = require('../../../lib/jwtAuth');
 
 /**
- * @api {get} /adverts Find published adverts
+ * @api {get} /api/v1/adverts Find published adverts
  * @apiName FindAdverts
  * @apiGroup Adverts
  * @apiVersion 1.0.0
