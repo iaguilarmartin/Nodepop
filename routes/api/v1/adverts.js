@@ -5,6 +5,70 @@ var router = express.Router();
 var Advert = require('mongoose').model('Advert');
 var jwtAuth = require('../../../lib/jwtAuth');
 
+/**
+ * @api {get} /adverts Find published adverts
+ * @apiName FindAdverts
+ * @apiGroup Adverts
+ * @apiVersion 1.0.0
+ * @apiDescription This /GET request is used to find published adverts that fits the conditions provided in the query string.
+ *
+ * @apiParam {String} token Authentication token. Mandatory to get results with the query.
+ * @apiParam {String} [tag] Filter adverts with an specific tag.
+ * @apiParam {Boolean=true, false} [sale] Filter adverts that are for sale or to buy.
+ * @apiParam {String} [name] Filter adverts witch name starts with the string specified.
+ * @apiParam {String} [price] Filter adverts witch price is within that value. The possibilities are:</br><ul>
+ * <li>"50": Return adverts witch price is <b>exactly</b> 50</li>
+ * <li>"50-": Return adverts witch price is <b>greater or equals</b> to 50</li>
+ * <li>"-50": Return adverts witch price is <b>lower or equals</b> to 50</li>
+ * <li>"20-50": Return adverts witch price is <b>between</b> 20 and 50</li>
+ * </ul>
+ * @apiParam {String} [sort] Return the adverts ordered by this field.
+ * @apiParam {Number} [limit] Limit the number of adverts returned as result (Useful for pagination).
+ * @apiParam {Number} [start] Skip all the adverts that are before that number (Useful for pagination).
+ * @apiParam {Boolean=true, false} [includeTotal] If <b>true</b> inside the result would include the number of adverts found by the query (Useful for pagination).
+ *
+ * @apiSuccess {Boolean} success Indicates if the request was successful or not.
+ * @apiSuccess {Object} result Object containing created user.
+ *
+ * @apiSuccessExample Success-Response:
+ *      {
+ *          "success": true,
+ *          "adverts": [
+ *              {
+ *                  "name": "Bicicleta",
+ *                  "isSale": true,
+ *                  "price": 230.15,
+ *                  "photo": "bici.jpg",
+ *                  "tags": [
+ *                      "lifestyle",
+ *                      "motor"
+ *                  ]
+ *                  "_id": "572a0bdfccea0b6613430b4c"
+ *              },
+ *              {
+ *                  "name": "iPhone 6s Plus",
+ *                  "isSale": false,
+ *                  "price": 500,
+ *                  "photo": "iphone.jpg",
+ *                  "tags": [
+ *                      "lifestyle",
+ *                      "mobile"
+ *                  ]
+ *                  "_id": "572a0bdfccea0b6613430b4d"
+ *              }
+ *          ]
+ *      }
+ *
+ * @apiError AUTH_NO_TOKEN No token provided.
+ *
+ * @apiErrorExample Error-Response:
+ *     {
+ *       "success": false,
+ *       "error": "AUTH_NO_TOKEN",
+ *       "description": "Es necesario especificar un token"
+ *     }
+ */
+
 router.get('/', jwtAuth(), function (req, res, next) {
     var filter = {};
 

@@ -1,6 +1,11 @@
 {
   "name": "Nodepop",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "API para aplicaciones de compra/venta de productos",
+  "apidoc": {
+    "title": "Nodepop REST API",
+    "url" : "http://localhost:3000/api/v1"
+  },
   "private": true,
   "scripts": {
     "start": "DEBUG=Nodepop:* nodemon ./bin/www",

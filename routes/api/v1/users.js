@@ -9,6 +9,43 @@ var express = require('express');
 var router = express.Router();
 var User = require('mongoose').model('User');
 
+/**
+ * @api {post} /users Register a new user
+ * @apiName RegisterUser
+ * @apiGroup Users
+ * @apiVersion 1.0.0
+ * @apiDescription This /POST request is used to register new users.
+ *
+ * @apiParam {String} mail User mail account.
+ * @apiParam {String} name User name.
+ * @apiParam {String} pass User login password.
+ *
+ * @apiSuccess {Boolean} success Indicates if the request was successful or not.
+ * @apiSuccess {Object} result Object containing created user.
+ *
+ * @apiSuccessExample Success-Response:
+ *      {
+ *          "success": true,
+ *          "result": {
+ *              "name": "adminEn",
+ *              "pass": "6a9f1f2f7f279b095a41b2f2218c202de18706ccd5c4c4ca7f4cfbda51cdee51",
+ *              "mail": "asdfasdfs@mail.com",
+ *              "_id": "572b8481a607cf6710e6cb43"
+ *          }
+ *      }
+ *
+ * @apiError USER_MAIL_REQUIRED Email required for new users.
+ * @apiError USER_NAME_REQUIRED User name required for new users.
+ * @apiError USER_PASS_REQUIRED Password required for new users.
+ *
+ * @apiErrorExample Error-Response:
+ *     {
+ *       "success": false,
+ *       "error": "USER_MAIL_REQUIRED",
+ *       "description": "El mail es obligatorio para poder crear nuevos usuarios"
+ *     }
+ */
+
 router.post('/', function (req, res, next) {
     var mail = req.body.mail;
     var name = req.body.name;
@@ -38,6 +75,37 @@ router.post('/', function (req, res, next) {
         res.json({success: true, result: saved});
     });
 });
+
+/**
+ * @api {post} /users/authenticate Authenticate user
+ * @apiName  AuthenticateUser
+ * @apiGroup Users
+ * @apiVersion 1.0.0
+ * @apiDescription This /POST request is used to authenticate a pair of user mail and password. If the information
+ * provided is correct then a token is returned to use in following requests made to the API.
+ *
+ * @apiParam {String} mail User mail account.
+ * @apiParam {String} pass User login password.
+ *
+ * @apiSuccess {Boolean} success Indicates if the request was successful or not.
+ * @apiSuccess {String} token Token needed for requesting adverts.
+ *
+ * @apiSuccessExample Success-Response:
+ *      {
+ *          "success": true,
+ *          "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI....."
+ *      }
+ *
+ * @apiError AUTH_MAIL_NOT_FOUND Auth failed, Mail not found.
+ * @apiError AUTH_INVALID_PASS Auth failed, Pass is invalid.
+ *
+ * @apiErrorExample Error-Response:
+ *     {
+ *       "success": false,
+ *       "error": "AUTH_MAIL_NOT_FOUND",
+ *       "description": "Fallo de autenticación, email no encontrado"
+ *     }
+ */
 
 router.post("/authenticate", function(req, res, next) {
     var mail = req.body.mail;

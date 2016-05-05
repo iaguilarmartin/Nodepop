@@ -27,6 +27,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use('/', require('./routes/index'));
+
+app.use('/documentation', express.static('./doc'));
 app.use('/images/anuncios', express.static('./public/images'));
 app.use('/api/v1/users', require('./routes/api/v1/users'));
 app.use('/api/v1/tags', require('./routes/api/v1/tags'));
