@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var express = require('express');
 var router = express.Router();
@@ -69,7 +69,7 @@ var jwtAuth = require('../../../lib/jwtAuth');
  *     }
  */
 
-router.get('/', jwtAuth(), function (req, res, next) {
+router.get('/', jwtAuth(), function (req, res) {
     var filter = {};
 
     var tag = req.query.tag;
@@ -85,8 +85,8 @@ router.get('/', jwtAuth(), function (req, res, next) {
         filter.tags = tag;
     }
 
-    if (sale !== undefined && (sale.toUpperCase() === "TRUE" || sale.toUpperCase() === "FALSE")) {
-        filter.isSale = sale.toUpperCase() === "TRUE" ? true : false;
+    if (sale !== undefined && (sale.toUpperCase() === 'TRUE' || sale.toUpperCase() === 'FALSE')) {
+        filter.isSale = sale.toUpperCase() === 'TRUE' ? true : false;
     }
 
     if (name !== undefined) {
@@ -97,9 +97,9 @@ router.get('/', jwtAuth(), function (req, res, next) {
         var pos = price.indexOf('-');
         if (pos == -1 && isFloat(price)) {
             filter.price = price;
-        } else if (pos == 0 && isFloat(price.substr(1))) {
+        } else if (pos === 0 && isFloat(price.substr(1))) {
             filter.price = {'$lte':price.substr(1)};
-        } else if (pos == price.length - 1 && isFloat(price.substr(0, price.length - 1))) {
+        } else if (pos === price.length - 1 && isFloat(price.substr(0, price.length - 1))) {
             filter.price = {'$gte':price.substr(0, price.length - 1)};
         } else {
             var minPrice = price.split('-')[0];
@@ -129,7 +129,7 @@ router.get('/', jwtAuth(), function (req, res, next) {
             return res.status(500).json({success: false, error: err});
         }
 
-        if (includeTotal !== undefined && includeTotal.toUpperCase() === "TRUE") {
+        if (includeTotal !== undefined && includeTotal.toUpperCase() === 'TRUE') {
             var queryCount = Advert.find(filter);
             queryCount.count(function(err, count) {
                 if (err) {

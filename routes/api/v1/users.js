@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var encrypt = require('../../../lib/encrypt');
 var sendError = require('../../../lib/customErrors');
@@ -46,7 +46,7 @@ var User = require('mongoose').model('User');
  *     }
  */
 
-router.post('/', function (req, res, next) {
+router.post('/', function (req, res) {
     var mail = req.body.mail;
     var name = req.body.name;
     var pass = req.body.pass;
@@ -107,7 +107,7 @@ router.post('/', function (req, res, next) {
  *     }
  */
 
-router.post("/authenticate", function(req, res, next) {
+router.post('/authenticate', function(req, res) {
     var mail = req.body.mail;
     var pass = req.body.pass;
 

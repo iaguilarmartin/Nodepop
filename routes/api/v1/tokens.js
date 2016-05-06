@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var express = require('express');
 var router = express.Router();
@@ -44,7 +44,7 @@ var Token = require('mongoose').model('PushToken');
  *     }
  */
 
-router.post('/', function(req, res, next) {
+router.post('/', function(req, res) {
     var mail = req.body.mail;
     var platform = req.body.platform;
     var token = req.body.token;
@@ -53,7 +53,7 @@ router.post('/', function(req, res, next) {
         return sendError('TOKEN_PLATFORM_REQUIRED', req, res);
     }
 
-    if (platform !== "ios" && platform !== "android") {
+    if (platform !== 'ios' && platform !== 'android') {
         return sendError('TOKEN_PLATFORM_INVALID', req, res);
     }
 
@@ -99,6 +99,6 @@ function createToken(res, token, platform, mail) {
 
         res.json({success: true, result: saved});
     });
-};
+}
 
 module.exports = router;

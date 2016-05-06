@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var express = require('express');
 var router = express.Router();
@@ -24,7 +24,7 @@ var config = require('../../../app_config');
  *
  */
 
-router.get('/', function (req, res, next) {
+router.get('/', function (req, res) {
     res.json({success: true, result: config.tags});
 });
 

@@ -6,10 +6,20 @@
     "title": "Nodepop REST API",
     "url" : "http://localhost:3000"
   },
+  "jshintConfig": {
+    "node": true,
+    "esnext": true,
+    "globals": {},
+    "globalstrict": true,
+    "quotmark": "single",
+    "undef": true,
+    "unused": true
+  },
   "private": true,
   "scripts": {
     "start": "DEBUG=Nodepop:* nodemon ./bin/www",
-    "installDB": "node tasks/install_db.js"
+    "installDB": "node tasks/install_db.js",
+    "jshint": "jshint ."
   },
   "dependencies": {
     "body-parser": "~1.13.2",

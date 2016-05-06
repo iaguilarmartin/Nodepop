@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 console.log('Starting database initialization script');
 
@@ -16,7 +16,7 @@ var fs = require('fs');
 
 var connected = false;
 
-mongooseConector.connect(function(err, conn) {
+mongooseConector.connect(function(err) {
     if (err) {
        terminate(err);
        return;
@@ -28,8 +28,8 @@ mongooseConector.connect(function(err, conn) {
 });
 
 function clearDatabase(arrCollections, callback) {
-    if (arrCollections.length == 0) {
-        console.log("Database cleared");
+    if (arrCollections.length === 0) {
+        console.log('Database cleared');
         callback();
         return;
     }
@@ -43,7 +43,7 @@ function clearDatabase(arrCollections, callback) {
 
         clearDatabase(arrCollections, callback);
     });
-};
+}
 
 function readJSONFile() {
     fs.readFile(__dirname + '/../' + config.initialDataScript, 'utf-8', function (errReading, data) {
@@ -52,17 +52,17 @@ function readJSONFile() {
             return terminate(errReading);
         }
 
-        console.log(config.initialDataScript + " file readed");
+        console.log(config.initialDataScript + ' file readed');
         var initialData = JSON.parse(data);
-        var data = initialData.users.concat(initialData.adverts);
-        console.log("Importing data...");
-        importData(data);
+        var completeData = initialData.users.concat(initialData.adverts);
+        console.log('Importing data...');
+        importData(completeData);
     });
-};
+}
 
 function importData(data) {
-    if (data.length == 0) {
-        console.log("Data imported correctly");
+    if (data.length === 0) {
+        console.log('Data imported correctly');
         terminate();
         return;
     }
@@ -86,10 +86,10 @@ function importData(data) {
             return terminate(errCreating);
         }
 
-        console.info("Item created:", result.name);
+        console.info('Item created:', result.name);
         importData(data);
     });
-};
+}
 
 function terminate(err) {
     if (connected) {
