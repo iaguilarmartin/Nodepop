@@ -17,9 +17,10 @@
   },
   "private": true,
   "scripts": {
-    "start": "DEBUG=Nodepop:* nodemon ./bin/www",
+    "start": "DEBUG=Nodepop:* EXE_MODE=multi nodemon ./bin/www",
+    "single": "DEBUG=Nodepop:* nodemon ./bin/www",
     "installDB": "node tasks/install_db.js",
-    "jshint": "jshint ."
+    "jshint": "jshint . || echo 'Done.'"
   },
   "dependencies": {
     "body-parser": "~1.13.2",
