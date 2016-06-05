@@ -72,6 +72,7 @@ router.post('/', function (req, res) {
             return res.json({success: false, error: err});
         }
 
+        saved.pass = '*******';
         res.json({success: true, result: saved});
     });
 });
