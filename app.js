@@ -30,7 +30,19 @@ app.use('/api/v1/users', require('./routes/api/v1/users'));
 app.use('/api/v1/tags', require('./routes/api/v1/tags'));
 app.use('/api/v1/tokens', require('./routes/api/v1/tokens'));
 app.use('/api/v1/adverts', require('./routes/api/v1/adverts'));
-app.use('/images/adverts', require('./routes/api/v1/images'));
+
+/**
+ * @api {get} /images/adverts/:image Get adverts images
+ * @apiName GetImages
+ * @apiGroup Images
+ * @apiVersion 1.0.0
+ * @apiDescription This /GET request returns the image associated with an advert.
+ *
+ * @apiParam {String} image The name of the image to get (i.e. audi.png).
+ *
+ * @apiSuccess {Image} Returns directly the requested image.
+ */
+app.use('/images/adverts', express.static('./public/images'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -44,24 +56,22 @@ app.use(function(req, res, next) {
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
-  app.use(function(err, req, res) {
+  /*jshint unused: false*/
+  app.use(function(err, req, res, next) {
+    console.log(err);
     res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error: err
-    });
+    return res.json({ success: false, error: err, description: err.message });
   });
+  /*jshint unused: true*/
 }
 
 // production error handler
 // no stacktraces leaked to user
-app.use(function(err, req, res) {
+/*jshint unused: false*/
+app.use(function(err, req, res, next) {
   res.status(err.status || 500);
-  res.render('error', {
-    message: err.message,
-    error: {}
-  });
+  return res.json({ success: false, error: err.message });
 });
-
+/*jshint unused: true*/
 
 module.exports = app;
