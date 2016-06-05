@@ -11,6 +11,7 @@ require('../models/User');
 
 var Advert = mongoose.model('Advert');
 var User = mongoose.model('User');
+
 var config = require('../app_config');
 var fs = require('fs');
 
@@ -54,7 +55,12 @@ function readJSONFile() {
 
         console.log(config.initialDataScript + ' file readed');
         var initialData = JSON.parse(data);
-        var completeData = initialData.users.concat(initialData.adverts);
+
+        var completeData = [
+            {schema: User, data: initialData.users},
+            {schema: Advert, data: initialData.adverts}
+        ];
+
         console.log('Importing data...');
         importData(completeData);
     });
@@ -62,21 +68,25 @@ function readJSONFile() {
 
 function importData(data) {
     if (data.length === 0) {
-        console.log('Data imported correctly');
         terminate();
         return;
     }
 
+    var schemaData = data.shift();
+    loadSchema(schemaData.schema, schemaData.data, function () {
+        importData(data);
+    });
+}
+
+function loadSchema(schema, data, cb) {
+    if (data.length === 0) {
+        cb();
+        return;
+    }
+
     var importObj = data.shift();
-
-    var schema;
-
-    // Si no el objeto no tiene una propiedad pass se trata de un anuncio, de lo contrario es un usuario
     if (importObj.pass) {
-        schema = User;
         importObj.pass = encrypt(importObj.pass);
-    } else {
-        schema = Advert;
     }
 
     var newObj = new schema(importObj);
@@ -86,8 +96,7 @@ function importData(data) {
             return terminate(errCreating);
         }
 
-        console.info('Item created:', result.name);
-        importData(data);
+        loadSchema(schema, data, cb);
     });
 }
 
@@ -99,6 +108,6 @@ function terminate(err) {
     if (err) {
         console.warn('One or more errors occurred while executing the script');
     } else {
-        console.log('Script finished without errors');
+        console.log('Script finished SUCCESSFULLY');
     }
 }
