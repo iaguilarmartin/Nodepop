@@ -5,6 +5,10 @@ var router = express.Router();
 var Advert = require('mongoose').model('Advert');
 var jwtAuth = require('../../../lib/jwtAuth');
 
+var utils = require('../../../lib/utils');
+var isFloat = utils.isFloat;
+var isInt = utils.isInt;
+
 /**
  * @api {get} /api/v1/adverts Find published adverts
  * @apiName FindAdverts
@@ -144,23 +148,5 @@ router.get('/', jwtAuth(), function (req, res) {
         res.json({success: true, adverts: rows});
     });
 });
-
-function isFloat(text) {
-    var num = parseFloat(text);
-    if (!isNaN(num) && text == num) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-function isInt(text) {
-    var num = parseInt(text);
-    if (!isNaN(num) && text == num) {
-        return true;
-    } else {
-        return true;
-    }
-}
 
 module.exports = router;
