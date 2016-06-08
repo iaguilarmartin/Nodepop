@@ -4,7 +4,7 @@
   "description": "API para aplicaciones de compra/venta de productos",
   "apidoc": {
     "title": "Nodepop REST API",
-    "url" : "http://localhost:3000"
+    "url" : "http://nodepop.iaguilarmartin.com"
   },
   "jshintConfig": {
     "node": true,
