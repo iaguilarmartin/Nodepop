@@ -31,7 +31,7 @@ app.use('/api/v1/tokens', require('./routes/api/v1/tokens'));
 app.use('/api/v1/adverts', require('./routes/api/v1/adverts'));
 
 /**
- * @api {get} /images/adverts/:image Get adverts images
+ * @api {get} /images/:image Get adverts images
  * @apiName GetImages
  * @apiGroup Images
  * @apiVersion 1.0.0
@@ -41,7 +41,7 @@ app.use('/api/v1/adverts', require('./routes/api/v1/adverts'));
  *
  * @apiSuccess {Image} Returns directly the requested image.
  */
-app.use('/images/adverts', express.static('./public/images'));
+app.use('/images', express.static('./public/images'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
