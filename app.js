@@ -25,7 +25,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use('/documentation', express.static('./doc'));
 app.use('/api/v1/users', require('./routes/api/v1/users'));
 app.use('/api/v1/tags', require('./routes/api/v1/tags'));
 app.use('/api/v1/tokens', require('./routes/api/v1/tokens'));
