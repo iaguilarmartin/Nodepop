@@ -28,7 +28,7 @@ var User = require('mongoose').model('User');
  *          "success": true,
  *          "result": {
  *              "name": "adminEn",
- *              "pass": "6a9f1f2f7f279b095a41b2f2218c202de18706ccd5c4c4ca7f4cfbda51cdee51",
+ *              "pass": "*******",
  *              "mail": "asdfasdfs@mail.com",
  *              "_id": "572b8481a607cf6710e6cb43"
  *          }
