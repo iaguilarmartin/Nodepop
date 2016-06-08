@@ -22,4 +22,4 @@ To try this API follow the next steps:
 		npm start
 		
 
-The API is now ready to use. You can take a look to the [API documentation](http://localhost:3000/documentation) to learn how to use it
+The API is now ready to use. You can take a look to the [API documentation](http://nodepop.iaguilarmartin.com) to learn how to use it
